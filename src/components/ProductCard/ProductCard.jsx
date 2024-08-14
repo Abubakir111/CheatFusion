@@ -1,14 +1,10 @@
-import style from './ProductCard.module.css'
+import style from './ProductCard.module.css';
 
 function ProductCard(props) {
   return (
     <>
       <div className={style.card}>
-        <img
-          src={props.gameImg}
-          alt="Distant Galaxy"
-          className={style.card__image}
-        />
+        <img src={props.gameImg} alt='Distant Galaxy' className={style.card__image} />
         <div className={style.card__content}>
           <h3 className={style.card__title}>{props.title}</h3>
           <div className={style.card__details}>
@@ -24,6 +20,6 @@ function ProductCard(props) {
         </div>
       </div>
     </>
-  )
+  );
 }
-export default ProductCard
+export default ProductCard;

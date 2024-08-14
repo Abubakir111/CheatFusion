@@ -40,24 +40,21 @@ body {
 .mySwiper {
   width: 100%;
 }
-/* .mySwiper img {
-  width: 440px;
-  height: 440px;
-  border-radius: 15px;
-} */
+
 .swiper-slide {
   width: max-content;
   height: max-content;
 }
-@media screen and (max-width: 720px) {
+
+@media screen and (max-width: 1199px) {
   .container {
     padding: 0px 50px;
   }
-  .mySwiper img {
+  /* .mySwiper img {
     width: 240px;
     height: 240px;
     border-radius: 15px;
-  }
+  } */
 }
 /* мобилка */
 @media screen and (max-width: 767px) {

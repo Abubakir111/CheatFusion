@@ -1,0 +1,43 @@
+.fixed {
+  position: fixed; /* Фиксированное позиционирование */
+  bottom: 10px; /* Расположить элемент в нижней части экрана */
+  right: 10px; /* Расположить элемент в левой части экрана */
+  padding: 10px; /* Отступы вокруг содержимого */
+}
+.fixedElips {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: #fff;
+}
+.fixedElips img {
+  position: absolute;
+  width: 54px;
+  height: 53px;
+  top: 50%; /* Сдвигает иконку на 50% от верхнего края контейнера */
+  left: 50%; /* Сдвигает иконку на 50% от левого края контейнера */
+  transform: translate(-50%, -50%);
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .fixedElips {
+    width: 80px;
+    height: 80px;
+  }
+  .fixedElips img {
+    width: 34px;
+    height: 33px;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .fixedElips {
+    width: 70px;
+    height: 70px;
+  }
+  .fixedElips img {
+    width: 24px;
+    height: 23px;
+  }
+}

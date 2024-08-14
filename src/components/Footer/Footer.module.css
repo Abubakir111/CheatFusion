@@ -36,16 +36,26 @@
 .footer__community_icons {
   display: flex;
   column-gap: 10px;
+  align-items: center;
 }
 .footer__community_icon {
   width: 32px;
   height: 32px;
 }
+.footer__community_icons a {
+  color: #ccc;
+}
 .footer__nav {
   padding-top: 25px;
   display: flex;
+  column-gap: 28px;
+}
+.footer__colum1 {
+  display: flex;
   flex-direction: column;
   row-gap: 20px;
+}
+.footer__colum1 a {
   font-size: var(--TextSize16);
   font-weight: var(--textWeight400);
   color: #ccc;
@@ -54,6 +64,12 @@
   width: 100%;
   height: 1px;
   background: #858584;
+}
+.footer__border_reserved {
+  margin-top: -29px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #cccccc;
 }
 /* планшед */
 @media screen and (max-width: 1199px) {

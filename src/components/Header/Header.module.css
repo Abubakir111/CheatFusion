@@ -26,11 +26,17 @@
 }
 /* планшед */
 @media screen and (max-width: 1199px) {
+  .header__inner {
+    padding: 15px 0px;
+  }
   .header__logo {
     width: 71px;
     height: 71px;
   }
   .header__nav {
     display: none;
+  }
+  .header__burger {
+    display: block;
   }
 }
