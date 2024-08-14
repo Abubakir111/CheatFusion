@@ -1,0 +1,20 @@
+.button_template {
+  height: 60px;
+  padding: var(--ButtonPadding);
+  border-radius: var(--buttonRadius);
+  background: var(--ButtonBackground);
+  color: var(--Color);
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: var(--textWeight600);
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+}

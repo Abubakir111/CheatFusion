@@ -1,0 +1,36 @@
+.header__inner {
+  padding: 20px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--Color);
+  font-size: 16px;
+  font-weight: var(--textWeight600);
+}
+.header {
+  width: 100%;
+}
+.header__logo {
+  width: 105px;
+  height: 105px;
+  cursor: pointer;
+}
+.header__burger {
+  display: none;
+}
+.header__nav {
+  display: flex;
+  column-gap: 38px;
+  align-items: center;
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .header__logo {
+    width: 71px;
+    height: 71px;
+  }
+  .header__nav {
+    display: none;
+  }
+}

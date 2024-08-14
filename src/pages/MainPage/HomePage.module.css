@@ -1,0 +1,24 @@
+.card_container {
+  padding: 60px 30px;
+  background: #3b3b3b;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+  border-radius: 20px;
+}
+.sectionPopularGames_h2 {
+  margin-left: 30px;
+}
+.sectionPopularGames {
+  margin-top: 23px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 41px;
+}
+
+@media screen and (max-width: 720px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+}

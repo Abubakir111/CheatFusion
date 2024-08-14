@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  /* border: 1px solid rgb(206, 193, 193) !important; */
+}
+:root {
+  --backgroun: #2b2b2b;
+  --ButtonPadding: 0px 30px;
+  --buttonRadius: 20px;
+  --ButtonBackground: #ee742b;
+  --Color: #fff;
+  --TextSize16: 16px;
+  ---textWeight600: 600;
+  --textWeight400: 400;
+}
+a {
+  color: var(--Color);
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  background: var(--backgroun);
+  color: var(--Color);
+  font-family: 'Work Sans';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 18.7px */
+}
+.container {
+  width: 100%;
+  padding: 0px 70px;
+}
+.button_reset {
+  border: none;
+  outline: none;
+}
+
+.mySwiper {
+  width: 100%;
+}
+/* .mySwiper img {
+  width: 440px;
+  height: 440px;
+  border-radius: 15px;
+} */
+.swiper-slide {
+  width: max-content;
+  height: max-content;
+}
+@media screen and (max-width: 720px) {
+  .container {
+    padding: 0px 50px;
+  }
+  .mySwiper img {
+    width: 240px;
+    height: 240px;
+    border-radius: 15px;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0px 30px;
+  }
+}

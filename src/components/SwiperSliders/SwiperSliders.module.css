@@ -1,0 +1,39 @@
+.swiperContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+.swiperButtonContianer {
+  width: 100%;
+  height: max-content;
+  margin: auto;
+  border: 1px solid silver;
+  display: flex;
+  justify-content: center;
+}
+.swiperButtonInner {
+  display: flex;
+  column-gap: 30px;
+}
+.swiperButtonInner img {
+  cursor: pointer;
+}
+.arrowsLeft {
+  transform: rotate(180deg);
+}
+/* .swiperPagination {
+} */
+/* .mySwiper {
+  width: 100%;
+} */
+.swiperImg {
+  width: 440px;
+  height: 440px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 720px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+}
