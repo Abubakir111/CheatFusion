@@ -1,10 +1,15 @@
 import Header from '../../components/Header/Header';
 import SwiperSlides from '../../components/SwiperSliders/SwiperSliders';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import gameImg from '../../acsses/products/game1.png';
 import Footer from '../../components/Footer/Footer';
 import Basket from '../../components/Basket/Basket';
 import style from './HomePage.module.css';
+import gameImg1 from '../../acsses/products/1.png';
+import gameImg2 from '../../acsses/products/2.png';
+import gameImg3 from '../../acsses/products/3.png';
+import gameImg4 from '../../acsses/products/4.png';
+import gameImg5 from '../../acsses/products/5.png';
+import gameImg6 from '../../acsses/products/6.png';
 
 function HomePage() {
   return (
@@ -17,12 +22,12 @@ function HomePage() {
         <div className={`${style.sectionAllGames} `}>
           <h2 className={style.sectionPopularGames_h2}>All games</h2>
           <div className={style.sectionPopularGames__cards}>
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
-            <ProductCard gameImg={gameImg} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg1} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg4} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg3} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg4} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg5} price={10} text1={'lorem'} title={'lorem'} />
+            <ProductCard gameImg={gameImg6} price={10} text1={'lorem'} title={'lorem'} />
           </div>
         </div>
         <Footer />
