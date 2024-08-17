@@ -1,0 +1,27 @@
+.button {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  padding: 9px 18px 11px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  font-family: 'Work Sans';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+}
+.priceText {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+.addBt {
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+}

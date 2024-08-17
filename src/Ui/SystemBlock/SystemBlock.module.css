@@ -1,0 +1,25 @@
+.product__info_block {
+  display: flex;
+  column-gap: 10px;
+  color: #fff;
+  font-family: 'Noto Sans';
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.product__info_block img {
+  width: 50px;
+  height: 50px;
+}
+.product__info_block_info {
+  max-width: 144px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  justify-content: center;
+}
+.product__info_text {
+  color: #ee742b;
+  font-weight: 600;
+}

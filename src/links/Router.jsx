@@ -1,6 +1,7 @@
 import Links from './Links';
-import NoRouting from '../pages/NoRouting/NouRouting';
+import NouRouting from '../pages/NoRouting/NouRouting';
 import HomePage from '../pages/MainPage/HomePage';
+import ProductPage from '../pages/ProductPage/ProductPage';
 
 const publicRoutes = [
   {
@@ -8,8 +9,12 @@ const publicRoutes = [
     element: <HomePage />
   },
   {
-    path: Links.NoRouting,
-    element: <NoRouting />
+    path: Links.NouRoutings,
+    element: <NouRouting />
+  },
+  {
+    path: Links.product,
+    element: <ProductPage />
   }
 ];
 export default publicRoutes;

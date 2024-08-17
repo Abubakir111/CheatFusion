@@ -4,6 +4,7 @@
   padding: 40px 195px;
   flex-direction: column;
   gap: 49px;
+  background: #3b3b3b;
 }
 .footer__inner {
   display: flex;

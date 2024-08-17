@@ -34,12 +34,12 @@
   border-radius: 50px;
   background: #ee742b;
 }
-.paginationBullett:first-child {
+/* .paginationBullett:first-child {
   background: none;
 }
 .paginationBullett:last-child {
-  background: none; /* Пример: синий цвет для последнего элемента */
-}
+  background: none;  элемента */
+
 .active {
   width: 12px;
   height: 8px;
@@ -50,6 +50,7 @@
   width: 480px;
   height: 480px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1199px) {
@@ -64,7 +65,7 @@
     margin: 34px 0px 32px 0px;
   }
   .swiperButtonInner {
-    column-gap: 0px;
+    column-gap: 20px;
   }
   .swiperImg {
     width: 138px;

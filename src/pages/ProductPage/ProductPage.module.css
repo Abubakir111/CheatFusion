@@ -1,0 +1,170 @@
+.product__wrapp {
+  display: flex;
+  flex-direction: column;
+  row-gap: 42px;
+}
+.product__wrapp h2 {
+  font-size: clamp(28px, 2vw, 58px);
+  line-height: 110%;
+}
+.product__inner {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  column-gap: 43px;
+  padding: 38px 35px;
+  border-radius: 10px;
+  background: #3b3b3b;
+  box-shadow: 0px 2px 4px -1px rgba(21, 21, 29, 0.1);
+}
+.product__slider {
+  display: flex;
+  height: max-content;
+  flex-direction: column;
+  row-gap: 18px;
+  cursor: pointer;
+}
+.product__main_picture {
+  width: 446px;
+  height: 344px;
+  border-radius: 10px;
+}
+.product__game_slider {
+  display: flex;
+  column-gap: 14px;
+}
+.product__slider_container {
+  width: max-content;
+  height: max-content;
+  position: relative;
+}
+
+.product__game_slider img {
+  width: 56px;
+  height: 56px;
+  border-radius: 5px;
+}
+
+.product__slider_container::before {
+  content: var(--pseudo-content) '/' var(--length);
+  border-radius: 10px;
+  background: rgba(35, 37, 42, 0.38);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px); /* Chrome, Safari */
+  -ms-backdrop-filter: blur(2.5px); /* IE (не поддерживается) */
+  -o-backdrop-filter: blur(2.5px); /* Opera (старые версии) */
+  padding: 10px 15px;
+  color: #fff;
+  font-family: 'Noto Sans';
+  font-size: clamp(10px, 3vw, 14px);
+  font-style: normal;
+  font-weight: 300;
+  position: absolute;
+  top: 84%; /* Позиция по вертикали */
+  left: 50%; /* Позиция по горизонтали */
+  transform: translate(-50%, -50%); /* Центрирование по горизонтали и вертикали */
+}
+.noActive {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.5;
+}
+.imgActive {
+  border: 2px solid #fff;
+  opacity: 1;
+}
+.product__info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 28px;
+}
+.product__info h5 {
+  line-height: 30px;
+  /* font-size: clamp(51px, 2vw, 28px); */
+}
+.product__info_btns {
+  display: flex;
+  column-gap: 10px;
+}
+.product__container {
+  display: flex;
+  column-gap: 80px;
+}
+.product__info_column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.product__button_container {
+  display: flex;
+  column-gap: 24px;
+}
+.BlockCharacteristics {
+  width: 100%;
+  display: flex;
+  column-gap: 32px;
+  margin: 37px 0px 125px 0px;
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .BlockCharacteristics {
+    display: none;
+  }
+  .product__wrapp {
+    row-gap: 34px;
+  }
+  .product__inner {
+    row-gap: 34px;
+    flex-direction: column;
+    padding: 30px 30px;
+  }
+  .product__info h5 {
+    display: none;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .product__wrapp {
+    row-gap: 21px;
+  }
+  .product__wrapp h2 {
+    padding-left: 30px;
+  }
+  .product__inner {
+    row-gap: 20px;
+    /* padding: 30px 30px;/ */
+  }
+  .product__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 13px;
+  }
+  .product__info_column {
+    row-gap: 13px;
+  }
+  .product__main_picture {
+    width: 240px;
+    height: 185px;
+  }
+  .product__info_btns {
+    column-gap: 7px;
+  }
+  .product__game_slider {
+    column-gap: 8px;
+  }
+  .product__game_slider img {
+    width: 31px;
+    height: 31px;
+  }
+  .product__info {
+    row-gap: 20px;
+  }
+  .product__button_container {
+    flex-direction: column;
+    row-gap: 13px;
+  }
+  .product__info_btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

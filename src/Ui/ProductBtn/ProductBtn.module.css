@@ -1,0 +1,30 @@
+.button {
+  width: max-content;
+  height: max-content;
+  padding: 10px 10px;
+  background: #2b2b2b;
+  border-radius: 5px;
+  font-family: 'Noto Sans';
+  /* font-family: ; */
+  font-size: clamp(9px, 1vw, 10px);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  column-gap: 0px;
+  color: black;
+}
+
+/* планшед */
+@media screen and (max-width: 1199px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .button {
+    font-weight: 300;
+    padding: 10px 8px;
+  }
+  .button img {
+    width: 13px;
+    height: 13px;
+  }
+}

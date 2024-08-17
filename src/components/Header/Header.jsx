@@ -11,11 +11,13 @@ const Header = () => {
     <div>
       <header className={`${style.header} container`}>
         <div className={style.header__inner}>
-          <img className={style.header__logo} src={logo} alt='logo' />
+          <NavLink to={Links.Home}>
+            <img className={style.header__logo} src={logo} alt='logo' />
+          </NavLink>
 
           <nav className={style.header__nav}>
             <NavLink to={Links.Home}>Store</NavLink>
-            <NavLink to={Links.NoRouting}>Contact</NavLink>
+            <NavLink to={Links.Erorr404}>Contact</NavLink>
             <NavLink to={Links.Rewars}>Rewards</NavLink>
             <NavLink to={Links.FAQ}>FAQ</NavLink>
             <Button user={UserIcon} text={'Log In'} bg={'#CE2DBF'} />
