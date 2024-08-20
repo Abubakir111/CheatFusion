@@ -13,6 +13,9 @@
   --TextSize16: 16px;
   ---textWeight600: 600;
   --textWeight400: 400;
+  --FAQAnimate90: 90%;
+  --FAQAnimate85: 85%;
+  --FAQAnimate80: 80%;
 }
 a {
   color: var(--Color);

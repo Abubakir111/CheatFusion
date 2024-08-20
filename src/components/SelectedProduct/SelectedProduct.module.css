@@ -1,0 +1,173 @@
+.info_container {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  background: #2b2b2b;
+  display: flex;
+  column-gap: 90px;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 53px 10px 10px;
+  border-radius: 15px;
+}
+.text_container {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+.title__container {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+.title__container_inner {
+  display: flex;
+  column-gap: 49px;
+}
+.card__game_info {
+  color: #fff;
+  font-family: 'Work Sans';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+.card__game_info span:first-of-type {
+  width: max-content;
+  color: #ffffffcb;
+  font-size: clamp(11px, 2vw, 18px);
+}
+.card__game_info span:nth-of-type(2) {
+  max-width: 250px;
+  color: #ffffffcb;
+  font-size: clamp(8px, 2vw, 14px);
+  font-weight: 400;
+  overflow: hidden;
+}
+.card__gamImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+/* .input__container {
+  display: flex;
+  column-gap: 85px;
+  align-items: center;
+} */
+.input__count_inner {
+  display: flex;
+  column-gap: 6px;
+  align-items: center;
+}
+.input__count_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.input__count_container img {
+  width: 12px;
+  height: 8px;
+  cursor: pointer;
+}
+.input__count_rect1 {
+  transform: rotate(180deg);
+}
+.info_container span {
+  font-size: clamp(14px, 3vw, 21px);
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .info_container {
+    width: 100%;
+    align-items: start;
+    justify-content: space-between;
+    column-gap: inherit;
+    /* padding: 10px 10px 10px 10px; */
+  }
+  .title__container_inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    justify-content: start;
+  }
+  .card__game_info {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .card__gamImg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .input__count_inner {
+    display: flex;
+    column-gap: 6px;
+    align-items: center;
+  }
+  .input__container {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .input__count_container {
+    display: flex;
+    row-gap: 2px;
+  }
+  .input__count_container img {
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+  }
+  .input__count_inner span {
+    font-size: 15px;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .info_container {
+    width: 100%;
+    align-items: start;
+    justify-content: space-between;
+    column-gap: inherit;
+    /* padding: 10px 10px 10px 10px; */
+  }
+  .title__container_inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    justify-content: start;
+  }
+  .card__game_info {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .card__gamImg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .input__count_inner {
+    display: flex;
+    column-gap: 6px;
+    align-items: center;
+  }
+  .input__container {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .input__count_container {
+    display: flex;
+    row-gap: 2px;
+  }
+  .input__count_container img {
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+  }
+  .input__count_inner span {
+    font-size: 15px;
+  }
+}

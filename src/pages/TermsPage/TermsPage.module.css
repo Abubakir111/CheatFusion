@@ -1,0 +1,38 @@
+.content {
+  min-height: 100vh;
+  padding: 23px 100px 100px 100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 63px;
+}
+.content h2 {
+  color: var(--White, #fff);
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  font-size: clamp(13px, 7vw, 51px);
+}
+.textContent {
+  color: #fff;
+  font-family: 'Work Sans';
+  font-size: clamp(13px, 3vw, 20px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%; /* 22px */
+}
+.p_container {
+  margin: 0px;
+  padding-bottom: 25px; /* Отступы для всех абзацев по умолчанию */
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .content {
+    row-gap: 47px;
+    padding: 16px 30px 97px 30px;
+  }
+  .p_container {
+    margin: 0px;
+    padding-bottom: 10px; /* Отступы для всех абзацев по умолчанию */
+  }
+}

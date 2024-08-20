@@ -1,6 +1,7 @@
 import style from './Footer.module.css';
 import discord from '../../acsses/icons/DiscordLogo.svg';
 import telegram1 from '../../acsses/icons/telegram1.svg';
+import Links from '../../links/Links';
 import { NavLink } from 'react-router-dom';
 
 function Footer() {
@@ -33,15 +34,15 @@ function Footer() {
             <h5>Navigation</h5>
             <nav className={style.footer__nav}>
               <div className={style.footer__colum1}>
-                <NavLink to='/about'>Store</NavLink>
-                <NavLink to='/menu'>Contact</NavLink>
-                <NavLink to='/siout'>Rewards</NavLink>
-                <NavLink to='/siout'>FAQ</NavLink>
+                <NavLink to={Links.Home}>Store</NavLink>
+                <NavLink to={Links.contact}>Contact</NavLink>
+                <NavLink to={Links.Rewars}>Rewards</NavLink>
+                <NavLink to={Links.FAQ}>FAQ</NavLink>
               </div>
               <div className={style.footer__colum1}>
-                <NavLink to='/siout'>Terms of use</NavLink>
-                <NavLink to='/siout'>Privacy policy</NavLink>
-                <NavLink to='/siout'>Refund policy</NavLink>
+                <NavLink to={Links.Terms}>Terms of use</NavLink>
+                <NavLink to={Links.Privacy}>Privacy policy</NavLink>
+                <NavLink to={Links.Refund}>Refund policy</NavLink>
               </div>
             </nav>
           </div>

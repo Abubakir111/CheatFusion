@@ -18,6 +18,7 @@ import gameImg6 from '../../acsses/products/6.png';
 function HomePage() {
   return (
     <>
+      {/* <Basket /> */}
       <Header />
       <div className={`${style.sectionPopularGames} `}>
         <h2 className={style.sectionPopularGames_h2}>Popular games</h2>

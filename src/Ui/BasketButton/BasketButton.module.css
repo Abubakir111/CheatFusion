@@ -3,6 +3,8 @@
   bottom: 10px; /* Расположить элемент в нижней части экрана */
   right: 10px; /* Расположить элемент в левой части экрана */
   padding: 10px; /* Отступы вокруг содержимого */
+  cursor: pointer;
+  z-index: 10;
 }
 .fixedElips {
   position: relative;
@@ -18,6 +20,9 @@
   top: 50%; /* Сдвигает иконку на 50% от верхнего края контейнера */
   left: 50%; /* Сдвигает иконку на 50% от левого края контейнера */
   transform: translate(-50%, -50%);
+}
+.hide {
+  display: none;
 }
 /* планшед */
 @media screen and (max-width: 1199px) {

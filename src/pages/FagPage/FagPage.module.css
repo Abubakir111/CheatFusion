@@ -1,0 +1,160 @@
+.container {
+  width: 100%;
+  height: max-content;
+  padding: 23px 100px 100px 100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 63px;
+}
+.fag,
+.about {
+  font-family: 'Space Mono';
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  row-gap: 66px;
+  align-items: center;
+}
+.fag,
+.about h2 {
+  font-size: clamp(28px, 3vw, 51px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  color: var(--Color);
+}
+.fag__files {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+}
+.fag__files1 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.about__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.easy {
+  height: 110px;
+  border-radius: 11px;
+  background: #3b3b3b;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px 0px 71px;
+  align-items: center;
+  color: var(--Color);
+  font-family: 'Work Sans';
+  font-size: clamp(10px, 2vw, 28px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 30.8px */
+}
+.title {
+  z-index: 2;
+}
+.easy::before {
+  content: '';
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  border-radius: 11px;
+  background: #ee742b;
+  position: absolute;
+  animation: easyAnimate 2s forwards;
+}
+
+.fast::before {
+  content: '';
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  border-radius: 11px;
+  background: #e41b45;
+  position: absolute;
+  animation: FastAnimate 2s forwards;
+}
+.good::before {
+  content: '';
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  border-radius: 11px;
+  background: #345d9d;
+  position: absolute;
+  animation: GoodAnimate 2s forwards;
+}
+@keyframes easyAnimate {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 90%;
+  }
+}
+@keyframes FastAnimate {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 85%;
+  }
+}
+@keyframes GoodAnimate {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 80%;
+  }
+}
+
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .fag {
+    row-gap: 69px;
+  }
+  .fag h2 {
+    width: 100%;
+    text-align: start;
+  }
+  .container {
+    padding: 23px 34px 33px 30px;
+  }
+  .fag__files {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .easy {
+    padding: 0px 17px 0px 41px;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .fag {
+    row-gap: 40px;
+  }
+  .about {
+    row-gap: 33px;
+  }
+  .fag__files1 {
+    row-gap: 10px;
+  }
+  .easy {
+    height: 50px;
+    padding: 0px 10px 0px 21px;
+  }
+}
