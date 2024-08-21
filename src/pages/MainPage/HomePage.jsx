@@ -23,7 +23,7 @@ function HomePage() {
   const burgerMenu = useSelector((state) => state.generalSlice.burgerMenu);
   return (
     <>
-      {burgerMenu && <BurgerMenu />}
+      {/* {burgerMenu && <BurgerMenu />} */}
       {/* <BurgerMenu /> */}
       {/* <Login /> */}
       {/* <Basket /> */}

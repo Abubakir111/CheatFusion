@@ -5,10 +5,13 @@ import Links from '../../links/Links';
 const NoRouting = () => {
   return (
     <div className={style.container}>
-      <h1 className={style.h1}> Такой страницы нету - ошибка 404</h1>
+      <h1>
+        Такой страницы нету <br />
+        ошибка 404
+      </h1>
 
       <Link to={Links.Home}>
-        <button type='button'>Вернуться на главную страницу</button>
+        <button type='button'> &larr; Вернуться на главную страницу</button>
       </Link>
     </div>
   );
