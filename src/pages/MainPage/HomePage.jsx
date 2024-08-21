@@ -14,10 +14,18 @@ import gameImg6 from '../../acsses/products/6.png';
 
 // временые импорты
 // import ProductPage from '../ProductPage/ProductPage';
-
+import SignUp from '../../components/Popupcomponents/SignUp/SignUp';
+import Login from '../../components/Popupcomponents/Login/Login';
+import { BurgerMenu } from '../../components/Popupcomponents/BurgerMenu/BurgerMenu';
+import { useDispatch, useSelector } from 'react-redux';
 function HomePage() {
+  // const Dispatch = useDispatch();
+  const burgerMenu = useSelector((state) => state.generalSlice.burgerMenu);
   return (
     <>
+      {burgerMenu && <BurgerMenu />}
+      {/* <BurgerMenu /> */}
+      {/* <Login /> */}
       {/* <Basket /> */}
       <Header />
       <div className={`${style.sectionPopularGames} `}>

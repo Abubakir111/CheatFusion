@@ -4,6 +4,7 @@ import HomePage from '../pages/MainPage/HomePage';
 import ProductPage from '../pages/ProductPage/ProductPage';
 import TermsPage from '../pages/TermsPage/TermsPage';
 import FagPage from '../pages/FagPage/FagPage';
+import RewardsPage from '../pages/RewardsPage/RewardsPage';
 
 const text1 = `Effective Date: [Insert Date]
 
@@ -143,17 +144,16 @@ const publicRoutes = [
     element: <TermsPage title={'Refund Policy'} text={text3} />
   },
   {
-    path: Links.Rewars,
-    element: <NouRouting />
-  },
-
-  {
     path: Links.FAQ,
     element: <FagPage />
   },
   {
     path: Links.contact,
     element: <NouRouting />
+  },
+  {
+    path: Links.Rewars,
+    element: <RewardsPage />
   }
 ];
 export default publicRoutes;

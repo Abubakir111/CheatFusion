@@ -1,0 +1,99 @@
+.temporaryClass {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: max-content;
+  height: max-content;
+  max-width: 1234px;
+  display: flex;
+  column-gap: 105px;
+  border-radius: 20px;
+  background: var(#2b2b2b);
+}
+.logo {
+  width: 564px;
+  height: 712px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.inputs_wrapp {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  font-family: 'Work Sans';
+  color: var(--Color);
+}
+.inputs_wrapp h2 {
+  font-size: clamp(38px, 3vw, 22px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 35.2px */
+}
+.inputs_wrapp p {
+  font-size: clamp(16px, 3vw, 22px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 35.2px */
+}
+.input_inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.btton_wrapp {
+  width: max-content;
+  height: max-content;
+  margin-top: 15px;
+}
+.btton_wrapp button {
+  width: 330px;
+  display: flex;
+  padding: 15px 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #ee742b;
+  color: var(--Color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 22.4px */
+}
+@media screen and (max-width: 1199px) {
+  .container {
+    max-width: 397px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+    padding-bottom: 30px;
+  }
+  .logo {
+    width: 100%;
+    max-width: inherit;
+    height: 402px;
+  }
+  .inputs_wrapp {
+    row-gap: 0px;
+    padding: 0px 20px;
+  }
+  .input_inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: inherit;
+    margin-top: 40px;
+  }
+  .btton_wrapp {
+    width: 100%;
+  }
+  .btton_wrapp button {
+    width: 100%;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+}

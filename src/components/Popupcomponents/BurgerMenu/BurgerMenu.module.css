@@ -1,0 +1,38 @@
+.container {
+  display: none;
+}
+
+@media screen and (max-width: 1199px) {
+  .container {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px;
+    align-items: end;
+    background: #3b3b3b;
+    color: var(--Color);
+    row-gap: 38px;
+  }
+  .navigantions {
+    display: flex;
+    flex-direction: column;
+    row-gap: 38px;
+    padding-right: 20px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 22.4px */
+    text-align: end;
+  }
+}
+
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 40px 54px;
+  }
+}
