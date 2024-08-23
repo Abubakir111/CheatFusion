@@ -1,4 +1,8 @@
 import SelectedProduct from '../../SelectedProduct/SelectedProduct';
+import { useDispatch } from 'react-redux';
+import { useLockBodyScroll } from 'react-use';
+import { openBasketCard } from '../../../redux/PopUpSlice';
+import corssIcon from '../../../acsses/icons/cross.svg';
 import iconImg1 from '../../../acsses/Payments/btcPayment.svg';
 import iconImg2 from '../../../acsses/Payments/LPayment.svg';
 import iconImg3 from '../../../acsses/Payments/stripePayment.svg';
@@ -7,14 +11,24 @@ import reight_arrow from '../../../acsses/icons/Right_arrow.png';
 import style from './Basket.module.css';
 
 function Basket() {
+  const Dispatch = useDispatch();
+  useLockBodyScroll(true);
   return (
     <>
       <div className={style.contianer}>
+        <div onClick={() => Dispatch(openBasketCard(false))} className={style.closeIcon}>
+          <img src={corssIcon} alt='corssIcon' />
+        </div>
         <div className={style.ShoppingCard}>
-          <h2>ShoppingCardInner</h2>
-          <SelectedProduct />
-          <SelectedProduct />
-          <SelectedProduct />
+          <h2>Shopping Card</h2>
+          <div className={style.test}>
+            <SelectedProduct />
+            <SelectedProduct />
+            <SelectedProduct />
+            <SelectedProduct />
+            <SelectedProduct />
+            <SelectedProduct />
+          </div>
         </div>
         <div className={style.card_wrap}>
           <div className={style.card}>

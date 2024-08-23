@@ -6,16 +6,23 @@ export const fetchUsers = createAsyncThunk('GeneralSlice/fetchUsers', async () =
   return data;
 });
 
-const generalSlice = createSlice({
-  name: 'GeneralSlice',
+const PopUpSlice = createSlice({
+  name: 'PopUpSlice',
   initialState: {
-    burgerMenu: false
+    burgerMenu: false,
+    logIn: false,
+    singIp: false,
+    basket: false
   },
 
   reducers: {
-    testFuncktion: (state, action) => {
+    openBasketCard: (state, action) => {
+      state.basket = action.payload;
+      console.log(state.basket, 'openBsket');
+    },
+    openBurgeMenu: (state, action) => {
       state.burgerMenu = action.payload;
-      console.log(state.burgerMenu);
+      console.log(state.burgerMenu, 'openMenu');
     }
     //   модальное окно  "добавить  пользователя"  открыть  закрыть
     // addUserModal: (state) => {
@@ -43,6 +50,6 @@ const generalSlice = createSlice({
   //   });
   // },
 });
-export const { testFuncktion } = generalSlice.actions;
+export const { openBasketCard, openBurgeMenu } = PopUpSlice.actions;
 
-export default generalSlice.reducer;
+export default PopUpSlice.reducer;

@@ -5,7 +5,7 @@
 @media screen and (max-width: 1199px) {
   .container {
     width: 100%;
-    height: max-content;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 40px 60px;
@@ -33,6 +33,6 @@
 /* мобилка */
 @media screen and (max-width: 767px) {
   .container {
-    padding: 40px 54px;
+    padding: 40px 20px;
   }
 }

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import generalSlice from '../generalSlice';
+import PopUpSlice from '../PopUpSlice';
 
 export const store = configureStore({
   reducer: {
-    generalSlice,
-  },
+    PopUpSlice
+  }
 });

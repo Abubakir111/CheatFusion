@@ -9,12 +9,59 @@
   align-items: center;
   padding: 50px 45px;
   margin: auto;
+  position: relative;
 }
+.closeIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 17px;
+  height: 17px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transform: rotate(0deg);
+}
+
 .ShoppingCard {
+  width: max-content;
+  height: 400px;
   display: flex;
   flex-direction: column;
   row-gap: 26px;
+
+  /* overflow-x: hidden;  */
 }
+.test {
+  width: max-content;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
+  overflow-y: scroll;
+  padding: 0px 20px;
+}
+.test::-webkit-scrollbar {
+  width: 0px; /* Ширина вертикальной полосы прокрутки */
+
+  height: 8px; /* Высота горизонтальной полосы прокрутки */
+  background: red;
+}
+/* Стилизация трека (фона) полосы прокрутки */
+.test::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Цвет трека (фона) */
+  border-radius: 10px;
+  background: red;
+}
+.test::-webkit-scrollbar-thumb {
+  background-color: #888; /* Цвет бегунка */
+  border-radius: 10px;
+  border: 2px solid #f1f1f1; /* Рамка вокруг бегунка */
+}
+
 .ShoppingCard h2 {
   color: #fff;
   font-family: 'Space Mono';
@@ -119,9 +166,19 @@
 @media screen and (max-width: 767px) {
   .ShoppingCard {
     width: 100%;
+    height: 360px;
+    align-items: center;
   }
   .contianer {
     width: 100%;
-    padding: 50px 40px;
+    padding: 50px 5px;
+  }
+  .closeIcon {
+    top: 40px;
+    right: 60px;
+  }
+  .test {
+    width: 100%;
+    padding: 0px;
   }
 }

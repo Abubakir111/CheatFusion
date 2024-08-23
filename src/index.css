@@ -57,6 +57,9 @@ body {
   width: max-content;
   height: max-content;
 }
+.hiden {
+  display: none;
+}
 
 @media screen and (max-width: 1199px) {
   .container {

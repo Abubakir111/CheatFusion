@@ -1,24 +1,14 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { openBasketCard } from '../../redux/PopUpSlice';
 import BasketImg from '../../acsses/icons/Basket.svg';
 import style from './BasketButton.module.css';
 
 function BasketButton() {
-  const [colse, setClose] = useState(true);
-  const hendelClik = () => {
-    if (colse == true) {
-      setClose(false);
-    } else if (colse === false) {
-      setClose();
-    }
-    console.log(colse);
-  };
+  const Dispatch = useDispatch();
+
   return (
     <>
-      <div
-        onClick={() => hendelClik()}
-        className={`${style.fixed}`}
-        style={{ display: ` ${close == 'sds' ? 'sds' : 'sdsd'}` }}
-      >
+      <div onClick={() => Dispatch(openBasketCard(true))} className={`${style.fixed}`}>
         <div className={style.fixedElips}>
           <img className={style.fixedImg} src={BasketImg} alt='Basket' />
         </div>
