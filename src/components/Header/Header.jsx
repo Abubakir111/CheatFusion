@@ -5,12 +5,12 @@ import UserIcon from '../../acsses/icons/User.svg';
 import burger from '../../acsses/icons/BurgerMenu.svg';
 import logo from '../../acsses/icons/Logo.svg';
 import { useDispatch } from 'react-redux';
-import { openBurgeMenu } from '../../redux/PopUpSlice';
+import { openLoginCard, openBurgeMenu } from '../../redux/PopUpSlice';
 import style from './Header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch();
-  // const openMenu = useSelector((state) => state.PopUpSlice.burgerMenu);
+
   // console.log(userModal);
   // dispatch(testFuncktion(true));
 
@@ -27,8 +27,15 @@ const Header = () => {
             <NavLink to={Links.contact}>Contact</NavLink>
             <NavLink to={Links.Rewars}>Rewards</NavLink>
             <NavLink to={Links.FAQ}>FAQ</NavLink>
-            <Button user={UserIcon} text={'Log In'} bg={'#CE2DBF'} />
-            <Button user={UserIcon} text={'Sign Up'} />
+            <NavLink to={Links.Login} onClick={() => dispatch(openLoginCard(true))}>
+              <Button user={UserIcon} text={'Log In'} bg={'#CE2DBF'} />
+            </NavLink>
+
+            <NavLink to={Links.SignUp} onClick={() => dispatch(openLoginCard(true))}>
+              {' '}
+              <Button user={UserIcon} text={'Sign Up'} />
+            </NavLink>
+
             {/* <Button user={User} text={'username'} bg={'none'} /> */}
           </nav>
           <div onClick={() => dispatch(openBurgeMenu(true))} className={style.header__burger}>

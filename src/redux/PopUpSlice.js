@@ -10,8 +10,8 @@ const PopUpSlice = createSlice({
   name: 'PopUpSlice',
   initialState: {
     burgerMenu: false,
-    logIn: false,
-    singIp: false,
+    logInPge: false,
+    singupPage: false,
     basket: false
   },
 
@@ -26,6 +26,22 @@ const PopUpSlice = createSlice({
     openBurgeMenu: (state, action) => {
       state.burgerMenu = action.payload;
       console.log(state.burgerMenu, 'openMenu');
+    },
+    openLoginCard: (state, action) => {
+      state.logInPge = action.payload;
+      if (state.burgerMenu == true) {
+        state.burgerMenu = false;
+        state.logInPge = action.payload;
+      }
+      console.log(state.logInPge, 'logInPge');
+    },
+    openSingUpCard: (state, action) => {
+      state.singupPage = action.payload;
+      if (state.burgerMenu == true) {
+        state.burgerMenu = false;
+        state.singupPage = action.payload;
+      }
+      console.log(state.singupPage, 'singupPage');
     }
     //   модальное окно  "добавить  пользователя"  открыть  закрыть
     // addUserModal: (state) => {
@@ -53,6 +69,6 @@ const PopUpSlice = createSlice({
   //   });
   // },
 });
-export const { openBasketCard, openBurgeMenu } = PopUpSlice.actions;
+export const { openBasketCard, openBurgeMenu, openLoginCard, openSingUpCard } = PopUpSlice.actions;
 
 export default PopUpSlice.reducer;

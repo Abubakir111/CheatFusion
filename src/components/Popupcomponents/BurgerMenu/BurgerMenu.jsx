@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Links from '../../../links/Links';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLockBodyScroll } from 'react-use';
-import { openBurgeMenu } from '../../../redux/PopUpSlice';
+import { openBurgeMenu, openLoginCard, openSingUpCard } from '../../../redux/PopUpSlice';
 import style from './BurgerMenu.module.css';
 
 export const BurgerMenu = () => {
@@ -14,8 +14,14 @@ export const BurgerMenu = () => {
   useLockBodyScroll(openMenu);
   return (
     <div className={style.container}>
-      <Button onClick={() => Dispatch(openBurgeMenu(false))} text={'Log In'} user={icon} bg={'#CE2DBF'} />
-      <Button onClick={() => Dispatch(openBurgeMenu(false))} text={'Sing Up'} user={icon} />
+      <NavLink to={Links.Login} onClick={() => Dispatch(openLoginCard(true))}>
+        {' '}
+        <Button text={'Log In'} user={icon} bg={'#CE2DBF'} />
+      </NavLink>
+
+      <NavLink to={Links.SignUp} onClick={() => Dispatch(openSingUpCard(true))}>
+        <Button text={'Sing Up'} user={icon} />
+      </NavLink>
       <div className={style.navigantions}>
         <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.Home}>
           Store

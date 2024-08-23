@@ -13,11 +13,12 @@ import style from './AppRoutes.module.css';
 const AppRoutes = () => {
   const Dispatch = useDispatch();
   const openMenu = useSelector((state) => state.PopUpSlice.burgerMenu);
-
   const openBasket = useSelector((state) => state.PopUpSlice.basket);
-  console.log(Basket);
+  const openLogin = useSelector((state) => state.PopUpSlice.logInPge);
+  const openSignUp = useSelector((state) => state.PopUpSlice.singupPage);
 
-  console.log(openMenu);
+  console.log(openLogin, 'openLogin');
+  console.log(openBasket, 'openBasket');
   const handleBlockClick = (event) => {
     event.stopPropagation(); // Предотвращает всплытие события клика на блоке
   };
@@ -33,10 +34,13 @@ const AppRoutes = () => {
       )}
       {openMenu && (
         <div onClick={() => Dispatch(openBurgeMenu(false))} className={style.popUpConainerMenu}>
-          <BurgerMenu />
+          <div onClick={handleBlockClick}>
+            <BurgerMenu />
+          </div>
         </div>
       )}
-      {openBasket == false ? <BasketButton /> : ''}
+      {openBasket == false && openLogin == false && openSignUp === false ? <BasketButton /> : ''}
+
       <ScrollToTop>
         <Routes>
           {publicRoutes.map(({ path, element }) =>

@@ -5,6 +5,8 @@ import ProductPage from '../pages/ProductPage/ProductPage';
 import TermsPage from '../pages/TermsPage/TermsPage';
 import FagPage from '../pages/FagPage/FagPage';
 import RewardsPage from '../pages/RewardsPage/RewardsPage';
+import SignUpPage from '../pages/SignUpPage/SignUpPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
 
 const text1 = `Effective Date: [Insert Date]
 
@@ -154,6 +156,14 @@ const publicRoutes = [
   {
     path: Links.Rewars,
     element: <RewardsPage />
+  },
+  {
+    path: Links.Login,
+    element: <LoginPage />
+  },
+  {
+    path: Links.SignUp,
+    element: <SignUpPage />
   }
 ];
 export default publicRoutes;

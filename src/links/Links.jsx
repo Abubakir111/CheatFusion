@@ -6,6 +6,8 @@ const Links = {
   Refund: '/Refund',
   Privacy: '/Privacy',
   Terms: '/Terms',
+  SignUp: '/signUp',
+  Login: '/Login',
   contact: '/contact',
   Erorr404: '*'
 };
