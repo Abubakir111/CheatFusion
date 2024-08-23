@@ -18,6 +18,9 @@ const PopUpSlice = createSlice({
   reducers: {
     openBasketCard: (state, action) => {
       state.basket = action.payload;
+      if (state.burgerMenu == true) {
+        state.burgerMenu = false;
+      }
       console.log(state.basket, 'openBsket');
     },
     openBurgeMenu: (state, action) => {

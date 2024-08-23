@@ -36,8 +36,7 @@ const AppRoutes = () => {
           <BurgerMenu />
         </div>
       )}
-
-      <BasketButton />
+      {openBasket == false ? <BasketButton /> : ''}
       <ScrollToTop>
         <Routes>
           {publicRoutes.map(({ path, element }) =>

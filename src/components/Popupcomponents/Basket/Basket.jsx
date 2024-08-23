@@ -1,6 +1,5 @@
 import SelectedProduct from '../../SelectedProduct/SelectedProduct';
 import { useDispatch } from 'react-redux';
-import { useLockBodyScroll } from 'react-use';
 import { openBasketCard } from '../../../redux/PopUpSlice';
 import corssIcon from '../../../acsses/icons/cross.svg';
 import iconImg1 from '../../../acsses/Payments/btcPayment.svg';
@@ -12,7 +11,6 @@ import style from './Basket.module.css';
 
 function Basket() {
   const Dispatch = useDispatch();
-  useLockBodyScroll(true);
   return (
     <>
       <div className={style.contianer}>
