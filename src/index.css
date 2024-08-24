@@ -60,7 +60,6 @@ body {
 .hiden {
   display: none;
 }
-
 @media screen and (max-width: 1199px) {
   .container {
     padding: 0px 50px;
@@ -73,6 +72,16 @@ body {
     height: 240px;
     border-radius: 15px;
   } */
+}
+@media screen and (min-width: 1300px) {
+  body {
+    width: 1300px;
+    margin: auto;
+  }
+  .container {
+    width: 100%;
+    padding: 0px 70px;
+  }
 }
 /* мобилка */
 @media screen and (max-width: 767px) {

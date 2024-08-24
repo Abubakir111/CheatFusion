@@ -2,7 +2,7 @@ import signUp from '../../acsses/PopUpsImg/signUp.png';
 import AcauntInput from '../../components/Popupcomponents/AcauntInput/AcauntInput';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { openLoginCard, openSingUpCard } from '../../redux/PopUpSlice';
+import { openSingUpCard } from '../../redux/PopUpSlice';
 import usrIcon from '../../acsses/PopUpsImg/User.svg';
 import email from '../../acsses/PopUpsImg/email.svg';
 import passord from '../../acsses/PopUpsImg/password.svg';
