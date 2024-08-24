@@ -5,9 +5,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: rgb(19, 141, 172);
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); */
+  background: url('../../acsses/icons/fonCheatFusion.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blurContainer {
+  width: 100%;
+  min-height: 100vh;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   width: max-content;

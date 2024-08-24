@@ -1,5 +1,6 @@
-import AcauntInput from '../../components/Popupcomponents/AcauntInput/AcauntInput';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import AcauntInput from '../../components/Popupcomponents/AcauntInput/AcauntInput';
 import { openLoginCard } from '../../redux/PopUpSlice';
 import LoginImg from '../../acsses/PopUpsImg/Login.png';
 import closs from '../../acsses/icons/cross.svg';
@@ -11,21 +12,30 @@ import Links from '../../links/Links';
 
 function Login() {
   const Disptch = useDispatch();
+  const navigate = useNavigate(); // Хук для навигации
+  const handleClick = () => {
+    Disptch(openLoginCard(false));
+    navigate(Links.Home); // Переход на указанную страницу
+  };
+  const handleBlockClick = (event) => event.stopPropagation(); // Предотвращает всплытие события клика на блоке
+
   return (
     <div className={style.wrapp}>
-      <div className={style.container}>
-        <NavLink className={style.cross} to={Links.Home} onClick={() => Disptch(openLoginCard(false))}>
-          <img src={closs} alt='closs' />
-        </NavLink>
-        <img className={style.logo} src={LoginImg} alt='LoginImg' />
-        <div className={style.inputs_wrapp}>
-          <h2>Log In</h2>
-          <p>Welcome! Enter your login and password to start buying cheats for your favorite games.</p>
-          <div className={style.input_inner}>
-            <AcauntInput icon={usrIcon} texPlesholder={'User'} />
-            <AcauntInput icon={passord} texPlesholder={'Password'} />
-            <div className={style.btton_wrapp}>
-              <button>Log In</button>
+      <div className={style.blurContainer} onClick={handleClick}>
+        <div className={style.container} onClick={handleBlockClick}>
+          <NavLink className={style.cross} to={Links.Home} onClick={() => Disptch(openLoginCard(false))}>
+            <img src={closs} alt='closs' />
+          </NavLink>
+          <img className={style.logo} src={LoginImg} alt='LoginImg' />
+          <div className={style.inputs_wrapp}>
+            <h2>Log In</h2>
+            <p>Welcome! Enter your login and password to start buying cheats for your favorite games.</p>
+            <div className={style.input_inner}>
+              <AcauntInput icon={usrIcon} texPlesholder={'User'} />
+              <AcauntInput icon={passord} texPlesholder={'Password'} />
+              <div className={style.btton_wrapp}>
+                <button>Log In</button>
+              </div>
             </div>
           </div>
         </div>

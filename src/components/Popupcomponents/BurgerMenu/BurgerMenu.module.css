@@ -3,8 +3,16 @@
 }
 
 @media screen and (max-width: 1199px) {
-  .container {
+  .wrapp {
     width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .container {
+    width: 60%;
     height: 100vh;
     display: flex;
     flex-direction: column;

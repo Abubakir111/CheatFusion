@@ -13,28 +13,30 @@ export const BurgerMenu = () => {
 
   useLockBodyScroll(openMenu);
   return (
-    <div className={style.container}>
-      <NavLink to={Links.Login} onClick={() => Dispatch(openLoginCard(true))}>
-        {' '}
-        <Button text={'Log In'} user={icon} bg={'#CE2DBF'} />
-      </NavLink>
+    <div className={style.wrapp}>
+      <div className={style.container}>
+        <NavLink to={Links.Login} onClick={() => Dispatch(openLoginCard(true))}>
+          {' '}
+          <Button text={'Log In'} user={icon} bg={'#CE2DBF'} />
+        </NavLink>
 
-      <NavLink to={Links.SignUp} onClick={() => Dispatch(openSingUpCard(true))}>
-        <Button text={'Sing Up'} user={icon} />
-      </NavLink>
-      <div className={style.navigantions}>
-        <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.Home}>
-          Store
+        <NavLink to={Links.SignUp} onClick={() => Dispatch(openSingUpCard(true))}>
+          <Button text={'Sing Up'} user={icon} />
         </NavLink>
-        <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.contact}>
-          Contact
-        </NavLink>
-        <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.Rewars}>
-          Rewars
-        </NavLink>
-        <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.FAQ}>
-          FAQ
-        </NavLink>
+        <div className={style.navigantions}>
+          <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.Home}>
+            Store
+          </NavLink>
+          <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.contact}>
+            Contact
+          </NavLink>
+          <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.Rewars}>
+            Rewars
+          </NavLink>
+          <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.FAQ}>
+            FAQ
+          </NavLink>
+        </div>
       </div>
     </div>
   );

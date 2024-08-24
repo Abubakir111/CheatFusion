@@ -2,9 +2,19 @@
   width: 100%;
   min-height: 100vh;
   height: max-content;
+  background: url('../../acsses//icons//fonCheatFusion.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blurContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .container {
   width: max-content;
