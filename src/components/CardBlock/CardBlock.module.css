@@ -1,0 +1,74 @@
+.container {
+  width: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  background: #3b3b3b;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 53px 10px 10px;
+  color: var(--Color);
+  font-family: 'Work Sans';
+  font-weight: 600;
+}
+.titleContianer {
+  display: flex;
+  align-items: center;
+  column-gap: 79px;
+}
+.inner {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+.inner img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+}
+.textWrapp {
+  display: flex;
+  column-gap: 49px;
+  align-items: center;
+}
+/* .textContainer span {
+  font-size: clamp(8px, 2vw, 18px);
+} */
+.textContainer span:nth-of-type(1) {
+  font-size: clamp(11px, 2vw, 18px);
+}
+.textContainer span:nth-of-type(2) {
+  font-size: clamp(8px, 2vw, 18px);
+  font-weight: 400;
+}
+
+/* планшед */
+@media screen and (max-width: 1199px) {
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+  .titleContianer {
+    width: 100%;
+    justify-content: space-between;
+    column-gap: inherit;
+  }
+  .textWrapp {
+    display: flex;
+    flex-direction: column;
+    column-gap: inherit;
+    align-items: start;
+    row-gap: 9px;
+  }
+  .textContainer {
+    row-gap: 6px;
+  }
+}

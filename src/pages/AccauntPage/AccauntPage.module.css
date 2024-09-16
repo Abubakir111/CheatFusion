@@ -1,0 +1,74 @@
+.container {
+  width: 100%;
+  height: max-content;
+  padding: 23px 100px 302px 100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 76px;
+  color: var(--Color);
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 56.1px */
+}
+.buttonContainer {
+  width: 100%;
+}
+.container h2 {
+  font-size: clamp(18px, 3vw, 51px);
+}
+.userContainer {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  row-gap: 89px;
+}
+.user {
+  display: flex;
+  column-gap: 66px;
+  align-items: center;
+}
+
+.user img {
+  width: 138px;
+  height: 138px;
+}
+.history {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  row-gap: 66px;
+}
+
+.historyContainaer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+/* планшед */
+@media screen and (max-width: 1199px) {
+  .container {
+    padding: 23px 30px 50px 30px;
+    row-gap: 29px;
+  }
+  .user {
+    display: flex;
+    column-gap: inherit;
+    flex-direction: column;
+    row-gap: 26px;
+    align-items: inherit;
+  }
+  .user img {
+    width: 100px;
+    height: 100px;
+  }
+}
+/* мобилка */
+@media screen and (max-width: 767px) {
+  .user img {
+    width: 60px;
+    height: 60px;
+  }
+}

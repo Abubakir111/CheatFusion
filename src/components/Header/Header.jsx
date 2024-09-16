@@ -27,16 +27,29 @@ const Header = () => {
             <NavLink to={Links.contact}>Contact</NavLink>
             <NavLink to={Links.Rewars}>Rewards</NavLink>
             <NavLink to={Links.FAQ}>FAQ</NavLink>
-            <NavLink to={Links.Login} onClick={() => dispatch(openLoginCard(true))}>
+            {/* <NavLink to={Links.Login} onClick={() => dispatch(openLoginCard(true))}>
               <Button user={UserIcon} text={'Log In'} bg={'#CE2DBF'} />
             </NavLink>
 
             <NavLink to={Links.SignUp} onClick={() => dispatch(openLoginCard(true))}>
               {' '}
               <Button user={UserIcon} text={'Sign Up'} />
-            </NavLink>
+            </NavLink> */}
 
-            {/* <Button user={User} text={'username'} bg={'none'} /> */}
+            <div className={style.usercontainer}>
+              <Button user={UserIcon} text={'username'} bg={'none'} />
+              <div className={style.userHoverWeapp}>
+                <div className={style.userHoverBlock}>
+                  <NavLink to={Links.acaunt}>
+                    <span>Account</span>
+                  </NavLink>
+                  <div className={style.liner}></div>
+                  <NavLink to={Links.Login}>
+                    <span>Logout</span>
+                  </NavLink>
+                </div>
+              </div>
+            </div>
           </nav>
           <div onClick={() => dispatch(openBurgeMenu(true))} className={style.header__burger}>
             <img src={burger} alt='burger Menu' />

@@ -9,6 +9,7 @@ const Links = {
   SignUp: '/signUp',
   Login: '/Login',
   contact: '/contact',
+  acaunt: '/acaunt',
   Erorr404: '*'
 };
 export default Links;

@@ -11,13 +11,23 @@ import gameImg3 from '../../acsses/products/3.png';
 import gameImg4 from '../../acsses/products/4.png';
 import gameImg5 from '../../acsses/products/5.png';
 import gameImg6 from '../../acsses/products/6.png';
-
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../../redux/store/ProductsSlice';
 // временые импорты
 // import ProductPage from '../ProductPage/ProductPage';
+// import AccauntPage from '../AccauntPage/AccauntPage';
 
 function HomePage() {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(fetchProducts()); // Запрашиваем продукты при монтировании компонента
+  }, [dispatch]);
+  console.log(data);
   return (
     <>
+      {/* <AccauntPage /> */}
       <Header />
       <div className={`${style.sectionPopularGames} `}>
         <h2 className={style.sectionPopularGames_h2}>Popular games</h2>
