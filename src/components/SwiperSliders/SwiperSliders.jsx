@@ -1,15 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Links from '../../links/Links';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { productPageId } from '../../redux/store/ProductsSlice';
 import ArrowsIcon from '../../acsses/icons/Arrows.svg';
-import game1 from '../../acsses/products/1.png';
-import game2 from '../../acsses/products/2.png';
-import game3 from '../../acsses/products/3.png';
-import game4 from '../../acsses/products/4.png';
-import game5 from '../../acsses/products/5.png';
-import game6 from '../../acsses/products/6.png';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -18,6 +13,8 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import style from './SwiperSliders.module.css';
 
 export default function SwiperTest() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate(); // Инициализация хука
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
@@ -50,6 +47,8 @@ export default function SwiperTest() {
       };
     }
   }, []);
+  const data = useSelector((state) => state.ProductsSlice.data);
+  console.log(data);
   const handleNext = () => {
     return sliderRef.current ? sliderRef.current.swiper.slideNext() : '';
   };
@@ -57,6 +56,11 @@ export default function SwiperTest() {
   const handlePrev = () => {
     return sliderRef.current ? sliderRef.current.swiper.slidePrev() : '';
   };
+  let count = 1;
+  const newData = data.map((element) => ({
+    ...element,
+    count: count++
+  }));
 
   return (
     <>
@@ -97,7 +101,6 @@ export default function SwiperTest() {
               slideShadows: true
             }
           }
-          // when window width is >= 640px
         }}
         onInit={() => {
           const swiperInstance = sliderRef.current?.swiper;
@@ -106,51 +109,18 @@ export default function SwiperTest() {
           }
         }}
       >
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game1} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game2} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game3} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game4} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game3} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game6} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game5} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game2} />
-          </NavLink>
-        </SwiperSlide>
-        <SwiperSlide>
-          <NavLink to={Links.product}>
-            <img className={style.swiperImg} src={game3} />
-          </NavLink>
-        </SwiperSlide>
+        {newData.map((data) => (
+          <SwiperSlide
+            key={data.pid}
+            onClick={() => {
+              dispatch(productPageId(data.pid));
+              navigate(Links.product); // Программный переход на страницу
+            }}
+          >
+            {/* <h2>{data.count}</h2> */}
+            <img className={style.swiperImg} src={data.preview_image} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className={style.swiperButtonContianer}>
         <div className={style.swiperButtonInner}>

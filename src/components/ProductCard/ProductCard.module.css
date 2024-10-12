@@ -13,6 +13,7 @@
 .card__image {
   width: 100%;
   height: 300px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .card__content {
@@ -21,6 +22,11 @@
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+}
+.card__Amout {
+  /* background: red; */
+  display: flex;
+  align-items: end;
 }
 .card__price {
   display: flex;
@@ -44,6 +50,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 /* планшед */
 @media screen and (max-width: 1199px) {
   .card {

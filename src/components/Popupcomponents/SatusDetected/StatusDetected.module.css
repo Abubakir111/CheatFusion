@@ -1,0 +1,48 @@
+.detected,
+.undetected,
+.underUpdate {
+  width: max-content;
+  height: max-content;
+  padding: 10px 10px;
+  border-radius: 5px;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  font-family: 'Noto Sans';
+  font-size: clamp(9px, 1vw, 10px);
+  font-weight: normal;
+  span {
+    line-height: 86%;
+  }
+}
+
+.detected {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+.detected span {
+  color: #f44336;
+}
+.undetected {
+  background: rgba(30, 219, 50, 0.2);
+  color: #1edb32;
+}
+.undetected span {
+  /* font-family: 'Noto Sans'; */
+  color: #1edb32;
+}
+.underUpdate {
+  background: rgba(255, 217, 102, 0.2);
+  color: #ffd966;
+}
+.underUpdate span {
+  /* font-family: 'Noto Sans'; */
+  color: #ffd966;
+}
+.detected img,
+.undetected img,
+.underUpdate img {
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+}

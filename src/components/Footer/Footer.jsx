@@ -12,9 +12,9 @@ function Footer() {
           <div className={style.footer__CheatFusion}>
             <h5>CheatFusion</h5>
             <p className={style.footer__CheatFusion_p}>
-              We're industry leaders in delivering undetected, high-quality game cheats. Trusted by over 35,000 gamers,
-              our commitment shines through instant delivery and 24/7 dedicated support. Elevate your gaming with cheats
-              crafted to perfection and experience unmatched excellence.
+              As a leading provider of premium, undetectable game cheats, we've earned the trust of over 1000 gamers.
+              Our dedication is reflected in fast delivery and 24/7 support. Enhance your gaming with expertly crafted
+              cheats and experience unparalleled performance.
             </p>
             <div className={style.footer__community}>
               <h5>Contacts</h5>

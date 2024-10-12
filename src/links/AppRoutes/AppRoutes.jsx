@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router';
+import { Helmet } from 'react-helmet';
 import publicRoutes from '../../links/Router.jsx';
 import BasketButton from '../../Ui/BasketButton/BasketButton.jsx';
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop.jsx';
@@ -17,8 +18,6 @@ const AppRoutes = () => {
   const openLogin = useSelector((state) => state.PopUpSlice.logInPge);
   const openSignUp = useSelector((state) => state.PopUpSlice.singupPage);
 
-  console.log(openLogin, 'openLogin');
-  console.log(openBasket, 'openBasket');
   const handleBlockClick = (event) => {
     event.stopPropagation(); // Предотвращает всплытие события клика на блоке
   };
@@ -40,9 +39,24 @@ const AppRoutes = () => {
         </div>
       )}
       {openBasket == false && openLogin == false && openSignUp === false ? <BasketButton /> : ''}
-
+      <Helmet>
+        <title> CheatFusion: The Ultimate Hub for Software Hacks and Cheats</title>
+        <meta
+          name='description'
+          content='CheatFusion Store is your ultimate destination for software cheats and hacks designed to boost productivity and unlock hidden features. Our collection includes detailed, easy-to-follow guides that cater to both beginners and experts across various software platforms. Whether you’re looking to streamline your workflow or discover powerful shortcuts, CheatFusion has everything you need. Start saving time and enhancing your software experience with our expertly curated cheats today!'
+        />
+      </Helmet>
       <ScrollToTop>
         <Routes>
+          {publicRoutes.map(({ path, element }, index) =>
+            path === '/' ? (
+              <Route key={index} index element={element} />
+            ) : (
+              <Route key={path || index} path={path} element={element} />
+            )
+          )}
+        </Routes>
+        {/* <Routes>
           {publicRoutes.map(({ path, element }) =>
             path === '/' ? (
               <Route key={path} index element={element} />
@@ -50,7 +64,7 @@ const AppRoutes = () => {
               <Route key={path} path={path} element={element} />
             )
           )}
-        </Routes>
+        </Routes> */}
       </ScrollToTop>
     </div>
   );

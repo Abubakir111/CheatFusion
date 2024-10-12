@@ -5,26 +5,22 @@ import SwiperSlides from '../../components/SwiperSliders/SwiperSliders';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Footer from '../../components/Footer/Footer';
 import style from './HomePage.module.css';
-import gameImg1 from '../../acsses/products/1.png';
-import gameImg2 from '../../acsses/products/2.png';
-import gameImg3 from '../../acsses/products/3.png';
-import gameImg4 from '../../acsses/products/4.png';
-import gameImg5 from '../../acsses/products/5.png';
-import gameImg6 from '../../acsses/products/6.png';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../../redux/store/ProductsSlice';
+import { fetchProducts, productPageId } from '../../redux/store/ProductsSlice';
 // временые импорты
 // import ProductPage from '../ProductPage/ProductPage';
 // import AccauntPage from '../AccauntPage/AccauntPage';
 
 function HomePage() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state);
+
+  // const data = useSelector((state) => state.ProductsSlice.data);
   useEffect(() => {
     dispatch(fetchProducts()); // Запрашиваем продукты при монтировании компонента
   }, [dispatch]);
-  console.log(data);
+  const data = useSelector((data) => data.ProductsSlice.data);
+  // console.log(data);
   return (
     <>
       {/* <AccauntPage /> */}
@@ -33,26 +29,20 @@ function HomePage() {
         <h2 className={style.sectionPopularGames_h2}>Popular games</h2>
         <SwiperSlides />
         <div className={`${style.sectionAllGames} `}>
-          <h2 className={style.sectionPopularGames_h2}>All games</h2>
+          <h1 className={style.sectionPopularGames_h2}>All games</h1>
           <div className={style.sectionPopularGames__cards}>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg1} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg4} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg3} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg2} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg5} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
-            <NavLink to={Links.product}>
-              <ProductCard gameImg={gameImg6} price={10} text1={'lorem'} title={'lorem'} />
-            </NavLink>
+            {data &&
+              data.map((element) => (
+                <NavLink to={Links.product} key={element.pid}>
+                  <ProductCard
+                    gameImg={element.preview_image}
+                    price={element.price.day}
+                    status={element.status}
+                    title={element.game}
+                    hendelClick={() => dispatch(productPageId(element.pid))}
+                  />
+                </NavLink>
+              ))}
           </div>
         </div>
         <Footer />

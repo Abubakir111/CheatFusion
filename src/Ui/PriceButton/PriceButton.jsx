@@ -1,24 +1,19 @@
 import style from './PriceButton.module.css';
 
-const PriceButton = ({ bg, co, cot, title, price }) => {
+const PriceButton = ({ title, price, active, id, Click }) => {
+  console.log(active);
+
   return (
     <>
-      <button className={style.button} style={{ background: bg, color: co }}>
-        {title}
-        <span className={style.priceText} style={{ color: cot }}>
-          {' '}
-          {price}{' '}
-        </span>
+      <button onClick={Click} className={`${active ? style.buttonActive : style.button}`} id={id}>
+        <span>{title}</span>
+        <span className={`${active ? style.priceTextActive : style.priceText}`}> {price} </span>
       </button>
     </>
   );
 };
 // Установка значений по умолчанию для пропсов
 PriceButton.defaultProps = {
-  bg: '#3B3B3B',
-  co: '#837e7e',
-  cot: '#fff',
-  fw: 'normal',
   text: 'Default Text',
   price: ''
 };

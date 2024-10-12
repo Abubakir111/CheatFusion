@@ -12,19 +12,27 @@ const PopUpSlice = createSlice({
     burgerMenu: false,
     logInPge: false,
     singupPage: false,
-    basket: false
+    basket: false,
+    scrollProduct: true
   },
 
   reducers: {
     openBasketCard: (state, action) => {
       state.basket = action.payload;
-      if (state.burgerMenu == true) {
+      if (state.burgerMenu === true) {
         state.burgerMenu = false;
       }
-      console.log(state.basket, 'openBsket');
+      if (state.basket === true) {
+        state.scrollProduct = true;
+      }
+      // else{
+      //    state.scrollProduct = false;
+      // }
+      // state.basket ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
     },
     openBurgeMenu: (state, action) => {
       state.burgerMenu = action.payload;
+
       console.log(state.burgerMenu, 'openMenu');
     },
     openLoginCard: (state, action) => {

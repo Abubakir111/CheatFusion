@@ -130,7 +130,7 @@ const publicRoutes = [
     element: <ProductPage />
   },
   {
-    path: Links.NouRoutings,
+    path: Links.Erorr404,
     element: <NouRouting />
   },
 

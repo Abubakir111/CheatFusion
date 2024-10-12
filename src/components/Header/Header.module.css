@@ -73,6 +73,10 @@
   column-gap: 38px;
   align-items: center;
 }
+.logoContainer {
+  display: flex;
+  column-gap: 33px;
+}
 /* планшед */
 @media screen and (max-width: 1199px) {
   .header__inner {
