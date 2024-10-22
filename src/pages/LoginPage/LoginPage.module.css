@@ -79,10 +79,16 @@
   flex-direction: column;
   row-gap: 15px;
 }
+
+.input_inner span {
+  color: red;
+  text-align: center;
+  font-size: clamp(16px, 3vw, 17px);
+}
 .btton_wrapp {
   width: max-content;
   height: max-content;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 .btton_wrapp button {
   width: 330px;

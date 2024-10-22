@@ -65,6 +65,10 @@
   flex-direction: column;
   row-gap: 15px;
 }
+.ErroroMasage {
+  text-align: center;
+  color: red;
+}
 .btton_wrapp {
   width: max-content;
   height: max-content;

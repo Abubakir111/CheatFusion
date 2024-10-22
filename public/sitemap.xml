@@ -5,13 +5,13 @@
     <lastmod>2024-10-11</lastmod>
     <priority>1.0</priority>
   </url>
-  <url>
+  <!-- <url>
     <loc>https://cheatfusion.store/about</loc>
     <lastmod>2024-10-12</lastmod>
     <priority>0.8</priority>
-  </url>
+  </url> -->
   <url>
-    <loc>https://cheatfusion.store/contact</loc>
+    <loc>https://cheatfusion.store/FAQ</loc>
     <lastmod>2024-10-12</lastmod>
     <priority>0.6</priority>
   </url>

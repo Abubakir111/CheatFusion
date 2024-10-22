@@ -8,28 +8,24 @@ import style from './HomePage.module.css';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, productPageId } from '../../redux/store/ProductsSlice';
-// временые импорты
-// import ProductPage from '../ProductPage/ProductPage';
-// import AccauntPage from '../AccauntPage/AccauntPage';
 
 function HomePage() {
   const dispatch = useDispatch();
-
-  // const data = useSelector((state) => state.ProductsSlice.data);
+  const developmentStatus = useSelector((status) => status.ProductsSlice.developmentStatus);
   useEffect(() => {
-    dispatch(fetchProducts()); // Запрашиваем продукты при монтировании компонента
+    dispatch(fetchProducts(developmentStatus)); // Запрашиваем продукты при монтировании компонента
   }, [dispatch]);
   const data = useSelector((data) => data.ProductsSlice.data);
-  // console.log(data);
+
   return (
     <>
       {/* <AccauntPage /> */}
       <Header />
       <div className={`${style.sectionPopularGames} `}>
-        <h2 className={style.sectionPopularGames_h2}>Popular games</h2>
+        <h2 className={style.sectionPopularGames_h2}>Popular cheats</h2>
         <SwiperSlides />
         <div className={`${style.sectionAllGames} `}>
-          <h1 className={style.sectionPopularGames_h2}>All games</h1>
+          <h1 className={style.sectionPopularGames_h2}>Buy cheats</h1>
           <div className={style.sectionPopularGames__cards}>
             {data &&
               data.map((element) => (

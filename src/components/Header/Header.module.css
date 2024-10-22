@@ -13,9 +13,11 @@
   border: 1px solid #3b3b3b;
   border-radius: 20px;
 }
+
 .userHoverWeapp {
   top: 100%;
-  right: 0%;
+  left: 50%; /* Начало смещения от центра родителя */
+  transform: translateX(-50%); /* Смещение назад на 50% от ширины элемента */
   position: absolute;
   padding-top: 10px;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import signUp from '../../acsses/PopUpsImg/signUp.png';
 import AcauntInput from '../../components/Popupcomponents/AcauntInput/AcauntInput';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { openSingUpCard } from '../../redux/PopUpSlice';
 import usrIcon from '../../acsses/PopUpsImg/User.svg';
@@ -15,21 +15,21 @@ import eyeOpen from '../../acsses/icons/eyeOpen.png';
 import style from './SignUpPage.module.css';
 import { NavLink } from 'react-router-dom';
 import Links from '../../links/Links';
-import { fetchAuthorizationUser } from '../../redux/store/AuthorizationUserSlice';
-import { useSelector } from 'react-redux';
-// import { registerUser } from '../../redux/store/UserSlice';
+// import { useSelector } from 'react-redux';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function SignUp() {
-  const errorAuthorization = useSelector((data) => data.AuthorizationUserSlice.errorAuthorization);
-  const testAuthorization = useSelector((data) => data.AuthorizationUserSlice.testAuthorization);
-  console.log('Получаем данные  с сервера  при ошибке ->', errorAuthorization);
-  console.log('Получаем данные  с сервера->', testAuthorization);
+  const [errorRegistration, setErrorRegistration] = useState('');
+  const developmentStatus = useSelector((status) => status.ProductsSlice.developmentStatus);
+  // const testAuthorization = useSelector((data) => data.AuthorizationUserSlice.testRegistrationUser);
+  // console.log('Получаем данные  с сервера  при ошибке ->', errorRegistration);
+  // console.log('Получаем данные  с сервера->', testAuthorization);
 
   const disptch = useDispatch();
   const navigate = useNavigate(); // Хук для навигации
   const [eyePass, setEyePass] = useState(false);
   const [eyeConPass, setEyeConPass] = useState(false);
-
   const [userData, setUserData] = useState({
     login: '',
     pass: '',
@@ -44,7 +44,6 @@ function SignUp() {
     conPass: '',
     inviteCode: ''
   });
-  // console.log(massege);
 
   // Функция для обновления данных пользователя
   const handleChange = (e) => {
@@ -55,26 +54,41 @@ function SignUp() {
     }));
   };
 
+  const handleClick = () => {
+    navigate(Links.Home); // Переход на указанную страницу
+    disptch(openSingUpCard(false));
+  };
   const registClick = () => {
     // Примеры регулярных выражений для проверки полей
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Для проверки корректности email
     const passwordMinLength = 3; // Минимальная длина пароля
-
+    // console.log(Cookies.get());
+    const cookieData = Cookies.get('jwt');
+    if (cookieData) {
+      try {
+        const jwt = cookieData; // Парсим обратно в объект
+        console.log(jwt);
+        return jwt;
+      } catch (error) {
+        console.error('Ошибка парсинга JWT:', error);
+        return null;
+      }
+    }
     // Валидация email
-    console.log(userData);
+    // console.log(userData);
     // Проверка логина
     if (!userData.login || userData.login.length < 3) {
       setMassege((prev) => ({
         ...prev,
         login: 'Login must be at least 3 characters long'
       }));
-      console.log(massege.login);
+      // console.log(massege.login);
     } else {
       setMassege((prev) => ({
         ...prev,
         login: ''
       }));
-      console.log(massege.login);
+      // console.log(massege.login);
     }
     if (!emailRegex.test(userData.email)) {
       setMassege((prev) => ({
@@ -105,7 +119,7 @@ function SignUp() {
 
     // Проверка на совпадение пароля и его подтверждения
     if (userData.pass !== userData.conPass) {
-      console.log(userData.pass, 'sdsd', userData.conPass);
+      // console.log(userData.pass, 'sdsd', userData.conPass);
 
       setMassege((prev) => ({
         ...prev,
@@ -118,40 +132,51 @@ function SignUp() {
       }));
     }
     if (massege.login == '' && massege.email == '' && massege.pass == '' && massege.conPass == '') {
-      console.log('Получаем данные  с поля:', userData);
+      // console.log('Получаем данные  с поля:', userData);
 
-      disptch(
-        fetchAuthorizationUser({
-          login: userData.login,
-          pass: userData.pass,
-          email: userData.email,
-          inviteCode: ''
-        })
-      );
+      const registration = async () => {
+        try {
+          const { data, status } = await axios.post(
+            developmentStatus
+              ? 'http://localhost:8080/https://api.cheatfusion.store/shop/registration'
+              : 'https://api.cheatfusion.store/shop/registration',
+            {
+              login: userData.login,
+              pass: userData.pass,
+              email: userData.email,
+              inviteCode: userData.inviteCode
+            }
+          );
+          if (status == 200) {
+            handleClick();
+          }
+          Cookies.set('jwt', data.jwt);
 
-      console.log(
-        'проверка данных перед запросам....\n',
-        {
-          login: userData.login,
-          pass: userData.pass,
-          email: userData.email,
-          inviteCode: ''
-        },
-        '\nотправляем  данные  в  пост  запрос!'
-      );
+          return data;
+        } catch (error) {
+          const errorMessage = error.response ? error.response.data.error : '';
+          setErrorRegistration(errorMessage);
+          // console.log(errorMessage);
+        }
+      };
+      registration();
+      setErrorRegistration('');
+      // console.log(
+      //   'проверка данных перед запросам....\n',
+      //   {
+      //     login: userData.login,
+      //     pass: userData.pass,
+      //     email: userData.email,
+      //     inviteCode: userData.inviteCode
+      //   },
+      //   '\nотправляем  данные  в  пост  запрос!'
+      // );
       // Запрашиваем продукты при монтировании компонента
     }
     // Тут ты можешь отправить данные userData на сервер
   };
 
-  const handleClick = () => {
-    navigate(Links.Home); // Переход на указанную страницу
-    disptch(openSingUpCard(false));
-  };
-
   const handleBlockClick = (event) => event.stopPropagation(); // Предотвращает всплытие события клика на блоке
-
-  // const data = use;
 
   return (
     <div className={style.wrapp}>
@@ -219,6 +244,8 @@ function SignUp() {
                 name='inviteCode'
                 value={userData.inviteCode}
               />
+              {errorRegistration.length != '' ? <span className={style.ErroroMasage}>{errorRegistration} </span> : ''}
+
               <div className={style.btton_wrapp}>
                 <button onClick={registClick}>Create account</button>
               </div>

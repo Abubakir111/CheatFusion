@@ -3,43 +3,54 @@ import icon from '../../../acsses/icons/User.svg';
 import { NavLink } from 'react-router-dom';
 import Links from '../../../links/Links';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useLockBodyScroll } from 'react-use';
+import { Logout } from '../../../redux/store/AuthorizationUserSlice';
 import { openBurgeMenu, openLoginCard, openSingUpCard } from '../../../redux/PopUpSlice';
 import style from './BurgerMenu.module.css';
+import { useState } from 'react';
 
 export const BurgerMenu = () => {
   const Dispatch = useDispatch();
   const openMenu = useSelector((state) => state.PopUpSlice.BurgerMenu);
-  const userSlice = useSelector((state) => state.AuthorizationUserSlice.LoginData);
-  const storedUse = JSON.parse(localStorage.getItem('user')) || null; // Данные из localStorage, если есть
+  const userSlice = useSelector((state) => state.AuthorizationUserSlice.userLogin);
 
-  let user = []; // Изначально пустой массив
-
-  console.log('user из useSelector:', userSlice);
-  console.log('user из localStorage:', storedUse);
-
-  if (userSlice && Object.keys(userSlice).length !== 0) {
-    // Если в userSlice есть данные
-    user = userSlice;
-    console.log('user = userSlice;');
-  } else if (storedUse && Object.keys(storedUse).length !== 0) {
-    // Если в storedUse есть данные
-    user = storedUse;
-    console.log('user = storedUse;');
-  } else {
-    // Если данных нигде нет, user остаётся пустым массивом
-    console.log('Пользователь не зарегистрирован');
-  }
-
-  console.log('Итоговое значение user:', user);
   useLockBodyScroll(openMenu);
+  const [acaunt, setAcaunt] = useState(false);
+
   return (
     <div className={style.wrapp}>
       <div className={style.container}>
-        {user.length !== 0 ? (
-          user.map((user, index) => (
-            <div key={index}>
-              <Button user={icon} text={user.login} bg={'none'} buttonHeader={'buttonHeader'} />
+        {userSlice.length > 0 ? (
+          userSlice.map((user, index) => (
+            <div key={index} className={style.container_inner}>
+              <Button
+                user={icon}
+                text={user.login}
+                bg={'none'}
+                buttonHeader={'buttonHeader'}
+                Clikc={() => setAcaunt((acautn) => !acautn)}
+              />
+              {acaunt ? (
+                <div className={style.userHoverBlock}>
+                  <NavLink onClick={() => Dispatch(openBurgeMenu(false))} to={Links.acaunt}>
+                    <span>Account</span>
+                  </NavLink>
+                  <div className={style.liner}></div>
+                  <NavLink
+                    onClick={() => {
+                      Dispatch(Logout());
+                      Dispatch(openBurgeMenu(false));
+                      window.location.reload();
+                    }}
+                    to={Links.Home}
+                  >
+                    <span>Logout</span>
+                  </NavLink>
+                </div>
+              ) : (
+                ''
+              )}
             </div>
           ))
         ) : (

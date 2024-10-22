@@ -7,6 +7,7 @@ import { BurgerMenu } from '../../components/Popupcomponents/BurgerMenu/BurgerMe
 import Basket from '../../components/Popupcomponents/Basket/Basket.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { openBurgeMenu, openBasketCard } from '../../redux/PopUpSlice.js';
+import { EraseMessage } from '../../redux/store/ProductsSlice.js';
 import style from './AppRoutes.module.css';
 // import Header from '../components/Header/Header';
 // import TermsPage from '../../pages/TermsPage/TermsPage.jsx';
@@ -25,7 +26,13 @@ const AppRoutes = () => {
   return (
     <div>
       {openBasket && (
-        <div onClick={() => Dispatch(openBasketCard(false))} className={style.popUpConainerBasket}>
+        <div
+          onClick={() => {
+            Dispatch(EraseMessage());
+            Dispatch(openBasketCard(false));
+          }}
+          className={style.popUpConainerBasket}
+        >
           <div onClick={handleBlockClick}>
             <Basket />
           </div>

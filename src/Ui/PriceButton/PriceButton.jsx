@@ -1,7 +1,7 @@
 import style from './PriceButton.module.css';
 
 const PriceButton = ({ title, price, active, id, Click }) => {
-  console.log(active);
+  // console.log(active);
 
   return (
     <>

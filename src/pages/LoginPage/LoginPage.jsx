@@ -12,13 +12,13 @@ import eyeOpen from '../../acsses/icons/eyeOpen.png';
 import style from './LoginPage.module.css';
 import { NavLink } from 'react-router-dom';
 import Links from '../../links/Links';
-import { fetchLoginUser } from '../../redux/store/AuthorizationUserSlice';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+// import { fetchLoginUser } from '../../redux/store/AuthorizationUserSlice';
 
 function Login() {
   const disptch = useDispatch();
-  const LoginMassege = useSelector((data) => data.AuthorizationUserSlice.LoginData);
-  const ErorrMassege = useSelector((data) => data.AuthorizationUserSlice.errorLogin);
-  const errorTest = useSelector((data) => data.AuthorizationUserSlice.errorTest);
+  const developmentStatus = useSelector((status) => status.ProductsSlice.developmentStatus);
 
   // console.log('LoginMassege ->', LoginMassege);
   // console.log('ErorrMassege ->', ErorrMassege);
@@ -29,6 +29,9 @@ function Login() {
     navigate(Links.Home); // Переход на указанную страницу
   };
   const [eyePass, setEyePass] = useState(false);
+  const [errorMassage, setErrorMassage] = useState('');
+
+  // let errorMessage = '';
   const handleBlockClick = (event) => event.stopPropagation(); // Предотвращает всплытие события клика на блоке
 
   const [userData, setUserData] = useState({
@@ -43,23 +46,31 @@ function Login() {
       [name]: value
     }));
     // console.log(name, value);
-  };
-  const registClick = () => {
-    if (userData.login !== '' && userData.pass !== '') {
-      console.log(
-        'проверка  данных перед отправкай  в  запрос....\n',
-        userData,
-        '\n отправляем  данные  в  пост  запрос!'
-      );
-
-      disptch(fetchLoginUser(userData));
-      // navigate(Links.Home);
-
-      console.log('отвер  серера  ->', LoginMassege);
-      console.log('отвер  серера при статус ошибке ->', ErorrMassege);
+    if (value !== '') {
+      setErrorMassage('');
     }
   };
-  console.log('отвер  серера  данные->', errorTest);
+  const LoginClick = async () => {
+    if (userData.login !== '' && userData.pass !== '') {
+      try {
+        const { data, status } = await axios.post(
+          developmentStatus
+            ? 'http://localhost:8080/https://api.cheatfusion.store/shop/login'
+            : 'https://api.cheatfusion.store/shop/login',
+          userData
+        );
+
+        if (status == 200) {
+          Cookies.set('jwt', data.jwt);
+          handleClick();
+        }
+
+        return data;
+      } catch (error) {
+        setErrorMassage(error.response ? error.response.data.error : '');
+      }
+    }
+  };
   return (
     <div className={style.wrapp}>
       <div className={style.blurContainer} onClick={handleClick}>
@@ -92,16 +103,10 @@ function Login() {
                   setEyePass((eye) => !eye);
                 }}
               />
-              {/* <AcauntInput
-                icon={email}
-                texPlesholder={'Email Address'}
-                name='email'
-                Change={(e) => handleChange(e)}
-                value={userData.email}
-                massage={massege.email}
-              /> */}
+              {errorMassage !== '' ? <span>{errorMassage}</span> : ''}
+
               <div className={style.btton_wrapp}>
-                <button onClick={() => registClick()}>Log In</button>
+                <button onClick={() => LoginClick()}>Log In</button>
               </div>
             </div>
           </div>

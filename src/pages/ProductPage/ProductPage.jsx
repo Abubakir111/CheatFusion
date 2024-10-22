@@ -87,20 +87,6 @@ const ProductPage = () => {
       pid: data[0].pid
     }
   ];
-
-  // console.log('button', buttons);
-  // const [activeButtonId, setActiveButtonId] = useState();
-  // console.log('activeButtonId', activeButtonId);
-  // const handleClick = (id) => {
-  //   console.log('sdsd', id);
-  //   setActiveButtonId(id); // Обновляем ID активной кнопки
-  //   buttons.map((elemet) => {
-  //     console.log(elemet.id, id);
-  //     if (elemet.id === id) {
-  //       elemet.active = true;
-  //     }
-  //   });
-  // };
   const [buttons, setButtons] = useState(initialButtons);
   const [activeButtonId, setActiveButtonId] = useState(null);
 
@@ -175,24 +161,19 @@ const ProductPage = () => {
                   data[0].flags.map((element, index) => (
                     <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={element} key={index} />
                   ))}
-                {/* <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={'WH'} />
-                <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={'AIM'} />
-                <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={'MIS'} />
-                <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={'Radar'} />
-                <ProductBtn co={' rgba(255, 255, 255, 0.40)'} text={'LOOT'} /> */}
               </div>
             </div>
             <div className={style.product__container}>
               <div className={style.product__info_column}>
                 <SystemBlock icon={icon1} title={'Game client:'} text={data[0].client} />
                 <SystemBlock icon={icon2} title={'System:'} text={data[0].system} />
-                <SystemBlock icon={icon3} title={'Built-in spoofer:'} text={data[0].spoofer} />
+                <SystemBlock icon={icon3} title={'Spoofer:'} text={data[0].spoofer} />
               </div>
               <div className={style.product__info_column}>
                 <SystemBlock icon={icon4} title={'Processor:'} text={data[0].proc} />
                 <SystemBlock icon={icon5} title={'Window mode:'} text={data[0].client} />
 
-                <SystemBlock icon={icon6} title={'Game client:'} text={data[0].usb_flash} />
+                <SystemBlock icon={icon6} title={'USB-flesh:'} text={data[0].usb_flash} />
               </div>
             </div>
 

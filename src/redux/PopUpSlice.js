@@ -33,7 +33,7 @@ const PopUpSlice = createSlice({
     openBurgeMenu: (state, action) => {
       state.burgerMenu = action.payload;
 
-      console.log(state.burgerMenu, 'openMenu');
+      // console.log(state.burgerMenu, 'openMenu');
     },
     openLoginCard: (state, action) => {
       state.logInPge = action.payload;
@@ -41,7 +41,7 @@ const PopUpSlice = createSlice({
         state.burgerMenu = false;
         state.logInPge = action.payload;
       }
-      console.log(state.logInPge, 'logInPge');
+      // console.log(state.logInPge, 'logInPge');
     },
     openSingUpCard: (state, action) => {
       state.singupPage = action.payload;
@@ -49,7 +49,7 @@ const PopUpSlice = createSlice({
         state.burgerMenu = false;
         state.singupPage = action.payload;
       }
-      console.log(state.singupPage, 'singupPage');
+      // console.log(state.singupPage, 'singupPage');
     }
     //   модальное окно  "добавить  пользователя"  открыть  закрыть
     // addUserModal: (state) => {

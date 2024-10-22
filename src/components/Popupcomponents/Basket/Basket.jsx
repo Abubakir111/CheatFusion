@@ -12,23 +12,87 @@ import stripe from '../../../acsses/Payments/Stripe.svg';
 import visa from '../../../acsses/Payments/Visa.svg';
 import PayWithCrypto from '../../../acsses/Payments/PayWithCrypto.svg';
 import reight_arrow from '../../../acsses/icons/Right_arrow.png';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 import style from './Basket.module.css';
 import Links from '../../../links/Links';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { hendelCountAdd, hendelCountPrev, DeletProduct } from '../../../redux/store/ProductsSlice';
+import { fetchMakeorder } from '../../../redux/store/ProductsSlice';
+import { hendelCountAdd, hendelCountPrev, DeletProduct, EraseMessage } from '../../../redux/store/ProductsSlice';
 // import CheckoutButton from '../../TestStrioBasket/TestStrioBasket';
 
 function Basket() {
   const products = useSelector((state) => state.ProductsSlice.ActiveProduct);
+  const developmentStatus = useSelector((state) => state.ProductsSlice.developmentStatus);
+  const TestPay = useSelector((state) => state.ProductsSlice.errorMakeorder);
   const scrollProduct = useSelector((state) => state.PopUpSlice.scrollProduct);
-  // const TotalMoney = useSelector((state) => state.ProductsSlice.TotalMoney);
+  const urlPay = useSelector((state) => state.ProductsSlice.urlPay);
+  console.log(urlPay);
+
+  const navigate = useNavigate(); // Получаем функцию navigate
   console.log(products);
+  console.log(TestPay);
+  const hendelCheckout = () => {
+    Dispatch(EraseMessage());
+    const token = Cookies.get('jwt'); // Получаем токен из cookies
+
+    if (!token && products.length !== 0) {
+      Dispatch(openBasketCard(false));
+      navigate(Links.Login); // Перенаправляем на страницу Links.Home
+      console.log('Токен не найден');
+      return;
+    }
+    if (products.length !== 0 && token) {
+      const types = products.map((product) => {
+        if (product.title === '1 day') return 1;
+        if (product.title === '1 week') return 2;
+        if (product.title === '1 month') return 3;
+      });
+      console.log(types);
+
+      let body = {
+        payment: 'freekassa',
+        type: types[0],
+        pid: products[0].pid,
+        amount: products[0].count,
+        currency: 'USD'
+      };
+      console.log(token);
+
+      let auth = {
+        headers: {
+          Authorization: `Bearer ${token}` // Передаем токен в заголовке Authorization
+        }
+      };
+      console.log(body);
+      console.log(auth);
+
+      Dispatch(fetchMakeorder({ developmentStatus, body, auth }));
+    } else {
+      console.log('вы не  вабрали  ни один продукт');
+    }
+    if (urlPay !== '') {
+      window.location.href = urlPay;
+    }
+  };
+  // let bodyMakeorder = {
+  //   payment: 'freekassa',
+  //   type: '',
+  //   pid: '',
+  //   amount: '',
+  //   currency: 'USD'
+  // };
+  // if (products) {
+  //   products.map((product) => {
+  //     // bodyMakeorder.type = if(product.title ==="1 day") return 1;
+  //   });
+  // }
   let cash = 0;
   products.map((many) => {
     cash += many.price;
   });
-  console.log(cash);
+  // console.log(cash);
 
   const [chekboxAvtive, setchekboxAvtive] = useState(false);
   const Dispatch = useDispatch();
@@ -57,7 +121,13 @@ function Basket() {
   return (
     <>
       <div className={style.contianer}>
-        <div onClick={() => Dispatch(openBasketCard(false))} className={style.closeIcon}>
+        <div
+          onClick={() => {
+            Dispatch(EraseMessage());
+            Dispatch(openBasketCard(false));
+          }}
+          className={style.closeIcon}
+        >
           <img src={corssIcon} alt='corssIcon' />
         </div>
         <div className={style.ShoppingCard}>
@@ -205,7 +275,13 @@ function Basket() {
                 <h5>Total (Tax incl.)</h5>
                 <span>${cash}</span>
               </div>
-              <button className={style.card__button}>
+              {TestPay.length > 0 ? <div className={style.errorMakeorder}>{TestPay[0]}</div> : ''}
+              <button
+                className={style.card__button}
+                onClick={() => {
+                  hendelCheckout();
+                }}
+              >
                 <span>$ {cash}</span>
                 <div className={style.card__button_icon}>
                   <span>Checkout</span>

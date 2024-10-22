@@ -1,10 +1,32 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
-  const { data } = await axios.get('https://api.cheatfusion.store/shop/products');
+export const fetchProducts = createAsyncThunk('products/fetchProducts', async (developmentStatus) => {
+  const { data } = await axios.get(
+    developmentStatus
+      ? 'http://localhost:8080/https://api.cheatfusion.store/shop/products'
+      : 'https://api.cheatfusion.store/shop/products'
+  );
 
   return data;
+});
+
+export const fetchMakeorder = createAsyncThunk('products/fetchMakeorder', async (arg, { rejectWithValue }) => {
+  const { developmentStatus, body, auth } = arg; // Деструктурируем аргуме
+  console.log(body);
+  console.log(auth);
+  console.log(developmentStatus);
+  const url = developmentStatus
+    ? 'http://localhost:8080/https://api.cheatfusion.store/shop/makeorder'
+    : 'https://api.cheatfusion.store/shop/makeorder';
+
+  try {
+    const { data } = await axios.post(url, body, auth);
+    return data; // Если запрос успешен, возвращаем данные
+  } catch (error) {
+    // Если произошла ошибка, возвращаем данные об ошибке
+    return rejectWithValue(error.response.data);
+  }
 });
 
 const ProductsSlice = createSlice({
@@ -15,7 +37,11 @@ const ProductsSlice = createSlice({
     error: '',
     ActiveProduct: [],
     // TotalMoney:0,
-    productActivId: ''
+    productActivId: '',
+    orderId: '',
+    urlPay: '',
+    errorMakeorder: [],
+    developmentStatus: true
   },
 
   reducers: {
@@ -65,6 +91,9 @@ const ProductsSlice = createSlice({
     },
     DeletProduct: (state, action) => {
       state.ActiveProduct = state.ActiveProduct.filter((element) => element.id !== action.payload);
+    },
+    EraseMessage: (state) => {
+      state.errorMakeorder = '';
     }
   },
   //обработка  запроса
@@ -82,8 +111,26 @@ const ProductsSlice = createSlice({
       // console.log(action.payload);
       state.data = action.payload;
     });
+    // fetchMakeorder;
+    build.addCase(fetchMakeorder.pending, (state) => {
+      state.loading = true;
+    });
+
+    build.addCase(fetchMakeorder.rejected, (state, action) => {
+      state.loading = false;
+      // state.errorMakeorder = action.payload || action.error.message;
+      state.errorMakeorder = [action.payload.error];
+    });
+    build.addCase(fetchMakeorder.fulfilled, (state, action) => {
+      state.loading = false;
+      // console.log(action.payload);
+      state.errorMakeorder = '';
+      state.orderId = action.payload.orderId;
+      state.urlPay = action.payload.url;
+    });
   }
 });
-export const { productPageId, ProductStore, hendelCountPrev, hendelCountAdd, DeletProduct } = ProductsSlice.actions;
+export const { productPageId, ProductStore, hendelCountPrev, hendelCountAdd, DeletProduct, EraseMessage } =
+  ProductsSlice.actions;
 
 export default ProductsSlice.reducer;

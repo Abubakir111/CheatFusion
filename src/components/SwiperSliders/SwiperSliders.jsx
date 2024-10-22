@@ -48,7 +48,7 @@ export default function SwiperTest() {
     }
   }, []);
   const data = useSelector((state) => state.ProductsSlice.data);
-  console.log(data);
+  // console.log(data);
   const handleNext = () => {
     return sliderRef.current ? sliderRef.current.swiper.slideNext() : '';
   };
